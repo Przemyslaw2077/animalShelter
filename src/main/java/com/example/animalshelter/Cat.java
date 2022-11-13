@@ -13,7 +13,7 @@ import javax.persistence.Enumerated;
 @Setter
 @NoArgsConstructor
 public class Cat extends Animal{
-// cat dog
+// cat dog cat
     @Enumerated(EnumType.STRING)
     private AnimalStatistics.CatRace race;
 
