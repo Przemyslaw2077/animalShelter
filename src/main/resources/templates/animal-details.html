@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="|${animalDetails} szczegóły|">szczegóły</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron home-jumbo">
+        <div class="container text-center text-white jumbo-container">
+            <h1 class="display-3">Foodie</h1>
+            <p>Witaj w naszej restauracji. Zamawiaj co chcesz i ile chcesz, a my przygotujemy to dla Ciebie.</p>
+            <p><a class="btn btn-outline-secondary" th:href="|/panel/zamowienia|">Zamówienia</a></p>
+        </div>
+    </div>
+    <table class="table table-dark table-striped">
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th scope="col">#</th>-->
+<!--            <th scope="col">Nazwa</th>-->
+<!--            <th scope="col">Cena</th>-->
+
+<!--        </tr>-->
+<!--        </thead>-->
+        <tbody th:object="${animalDetails}">
+        <tr>
+            <th scope="row">Imie: </th>
+            <td th:text="*{name}">Mark</td>
+        </tr>
+        <tr>
+            <th scope="row">Płeć: </th>
+            <td th:text="*{gender}">Mark</td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
