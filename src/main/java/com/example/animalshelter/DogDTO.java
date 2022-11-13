@@ -1,7 +1,7 @@
 package com.example.animalshelter;
 
 public class DogDTO extends AnimalDTO {
-
+// description
 
     private AnimalStatistics.DogsRace race;
 
