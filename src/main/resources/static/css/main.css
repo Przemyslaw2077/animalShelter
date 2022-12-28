@@ -1,8 +1,16 @@
 .home-jumbo {
     background: url('../img/shelter.jpg') center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .media-body {
     margin-left: 18px;
 
+}
+.center{
+    text-align: center;
+}
+.selektor{
+    position: relative;left: 4px;
 }

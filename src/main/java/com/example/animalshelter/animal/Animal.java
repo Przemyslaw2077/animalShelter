@@ -1,4 +1,5 @@
-package com.example.animalshelter;
+package com.example.animalshelter.animal;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,7 +9,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @MappedSuperclass
-public abstract class Animal {
+public class Animal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,14 +23,6 @@ public abstract class Animal {
     @Enumerated(EnumType.STRING)
     private AnimalStatistics.Size size;
     private String description;
-
-    public Animal(String name, AnimalStatistics.Species species, AnimalStatistics.Gender gender, AnimalStatistics.Age age, AnimalStatistics.Size size, String description) {
-        this.name = name;
-        this.species = species;
-        this.gender = gender;
-        this.age = age;
-        this.size = size;
-        this.description = description;
-    }
+    private boolean adopted;
 
 }

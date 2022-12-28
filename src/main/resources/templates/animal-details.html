@@ -8,35 +8,63 @@
     <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet">
 </head>
 <body>
-<div class="container">
+<div th:object="${animalDetails}" class="container">
     <div class="jumbotron home-jumbo">
         <div class="container text-center text-white jumbo-container">
-            <h1 class="display-3">Foodie</h1>
-            <p>Witaj w naszej restauracji. Zamawiaj co chcesz i ile chcesz, a my przygotujemy to dla Ciebie.</p>
-            <p><a class="btn btn-outline-secondary" th:href="|/panel/zamowienia|">Zamówienia</a></p>
+            <h1 class="display-3">Schronisko</h1>
+            <p th:text="|Szczeguły dotyczące *{name}|">Szczeguły dotyczące zwierzęcia</p>
+            <p><a class="btn btn-outline-secondary" th:href="|/|">Strona główna</a></p>
         </div>
     </div>
-    <table class="table table-dark table-striped">
-<!--        <thead>-->
-<!--        <tr>-->
-<!--            <th scope="col">#</th>-->
-<!--            <th scope="col">Nazwa</th>-->
-<!--            <th scope="col">Cena</th>-->
 
-<!--        </tr>-->
-<!--        </thead>-->
-        <tbody th:object="${animalDetails}">
+    <div class="container">
+        <div  class="col-lg-6 offset-lg-3">
+            <img th:src="*{race.getIMGDirectory()}" style="width:600px"  src="../static/img/bernardyn.jpg" class="img-fluid" alt="Szczeguły" />
+            <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                <h1 th:text="|*{species.getTranslation()}  *{name}|" class="text-center">Mark</h1>
+<!--                <h3 th:text="|Cena: *{price}zł|" class="text-center">Cena: 25zł</h3>-->
+                <p th:text="*{description}" class="text-justify">opis</p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <table class="table table-dark table-striped">
+
+        <tbody >
         <tr>
             <th scope="row">Imie: </th>
             <td th:text="*{name}">Mark</td>
         </tr>
         <tr>
             <th scope="row">Płeć: </th>
-            <td th:text="*{gender}">Mark</td>
+            <td th:text="*{gender.getTranslation()}">Mark</td>
         </tr>
+        <tr>
+            <th scope="row">Wiek: </th>
+            <td th:text="*{age.getTranslation()}">Mark</td>
+        </tr>
+        <tr>
+            <th scope="row">Rozmiar: </th>
+            <td th:text="*{size.getTranslation()}">Mark</td>
+        </tr>
+        <tr>
+            <th scope="row">Rasa: </th>
+            <td th:text="*{race.getTranslation()}">Mark</td>
+        </tr>
+
 
         </tbody>
     </table>
+    <h2 th:text="|Opis rasy *{race.getTranslation()}|" class="container text-center" >Opis rasy</h2>
+    <p th:text="*{race.getRaceDescription}" class="container text-center" >Opis rasy</p>
+    <div style="text-align: center" class="col-12">
+        <a class="btn btn-danger" th:href="|/animal/adopt?animalId=*{id}&species=*{species}|" >Adoptuj</a>
+    </div>
 </div>
 </body>
 </html>

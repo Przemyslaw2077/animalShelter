@@ -11,9 +11,16 @@
 <div class="container">
     <div class="jumbotron home-jumbo">
         <div class="container text-center text-white jumbo-container">
-            <h1 class="display-3">Foodie</h1>
-            <p>Witaj w naszej restauracji. Zamawiaj co chcesz i ile chcesz, a my przygotujemy to dla Ciebie.</p>
-            <p><a class="btn btn-outline-secondary" th:href="|/panel/zamowienia|">Zamówienia</a></p>
+            <h1 class="display-3">Schronisko</h1>
+            <p>Witaj w naszym schronisku. Przejrzyj nasze propozycje zwierząt do adopcji a następnie wybierz jakieś.</p>
+            <p>
+                <a class="btn btn-outline-secondary" th:href="|/information/history|">Historia adopcji</a>
+            </p>
+            <a class="btn btn-outline-secondary" th:href="|/animal/add?species=CAT|">Dodaj nowego kota</a>
+            <a class="btn btn-outline-secondary" th:href="|/animal/add?species=DOG|">Dodaj nowego psa</a>
+            <a class="btn btn-outline-secondary" th:href="|/create|">Dodaj osobe adoptującą</a>
+            </p>
+
         </div>
     </div>
 
@@ -21,28 +28,21 @@
         <div class="col-12">
             <div class="text-center mb-2">
 
-                <a href="#" th:href="|/?specie=DOG|"
-                   class="btn btn-danger">Psy</a>
-                <a href="#" th:href="|/?specie=CAT|"
-                   class="btn btn-warning">Koty</a>
-                <a href="#" th:href="|/|"
-                   class="btn btn-success">Wszystkie</a>
-                <a href="#" th:href="|/?gender=HE|"
-                   class="btn btn-danger">ONI</a>
-                <a href="#" th:href="|/?gender=SHE|"
-                   class="btn btn-danger">ONE</a>
-
-
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
-                    <option th:href="|/|" value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
+                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                    <a href="#" th:href="|/?specie=DOG|"
+                       class="btn btn-success">Psy</a>
+                    <a href="#" th:href="|/?specie=CAT|"
+                       class="btn btn-success">Koty</a>
+                    <a href="#" th:href="|/?gender=HE|"
+                       class="btn btn-warning">ONI</a>
+                    <a href="#" th:href="|/?gender=SHE|"
+                       class="btn btn-warning">ONE</a>
+                </div>
                 <div class="text-center">
-                    <button class="btn btn-primary">Zamów</button>
+                    <button href="#" th:href="|/|" class="btn btn-danger">Wszystkie</button>
                 </div>
 
+                <h4>Zdjęcia, które widzisz, prezentują tylko wygląd rasy, jakiej jest dane zwierze, a nie prawdziwy wygląd zwierzęcia.</h4>
             </div>
 
         </div>
@@ -59,26 +59,13 @@
                         <li th:text="|Płeć *{gender.getTranslation()}|" class="list-group-item">On</li>
                         <li th:text="|Wiek *{age.getTranslation()}|" class="list-group-item">Młody</li>
                     </ul>
-                    <a href="#" th:href="|/details?name=*{name}&species=*{species}|" class="btn btn-primary">Szczeguły</a>
+                    <a href="#" th:href="|/animal/details?id=*{id}&species=*{species}|" class="btn btn-danger">Szczeguły</a>
+                    <a href="#" th:href="|/animal/adopt?animalId=*{id}&species=*{species}|" class="btn btn-danger">Adoptuj</a>
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="card" style="width: 20rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Imie</h5>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Mały</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card" style="width: 20rem;">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="card" style="width: 15rem">
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Imie</h5>
@@ -91,13 +78,27 @@
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="card" style="width: 20rem;">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="card" style="width: 15rem">
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">Imie</h5>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">Mały</li>
+                        <li class="list-group-item">On</li>
+                        <li class="list-group-item">Młody</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Szczeguły</a>
+                </div>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="card" style="width: 20rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body" style="width: 15rem">
+                    <h5 class="card-title">Imie</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Mały</li>
                         <li class="list-group-item">On</li>
                         <li class="list-group-item">Młody</li>
                     </ul>

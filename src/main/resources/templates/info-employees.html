@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pracownicy</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+
+    <div class="jumbotron home-jumbo">
+        <div class="container text-center text-white jumbo-container">
+            <h1 class="display-3">Schronisko</h1>
+            <p>Informacje o wszystkich pracownikach w aplikacjiiebie.</p>
+            <p><a class="btn btn-outline-secondary" th:href="|/|">Strona główna</a></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="text-center mb-2">
+
+                <div class="btn-group">
+                    <a href="#" th:href="|/information/history|" class="btn btn-success">Historia Adopcji</a>
+                    <a href="#" th:href="|/information/animals?adopted=true|" class="btn btn-primary">Zaadoptowane zwierzęta</a>
+                    <a href="#" th:href="|/information/employees|" class="btn btn-success">Pracownicy</a>
+                    <a href="#" th:href="|/information/animals?adopted=false|" class="btn btn-primary">Nie zaadoptowane zwierzęta</a>
+                    <a href="#" th:href="|/information/adopters|" class="btn btn-success">Osoby Adoptujące</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-dark table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Imie</th>
+            <th scope="col">Nazwisko</th>
+            <th scope="col">Nazwa Użytkownika</th>
+
+
+        </tr>
+        </thead>
+        <tbody th:remove="all-but-first">
+        <tr th:each="employee: ${employees}" th:object="${employee}">
+            <th scope="row">1</th>
+            <td th:text="*{firstName}">Mark</td>
+            <td th:text="|*{lastName}|">White</td>
+            <td th:text="|*{userName}|">Philip</td>
+
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>Thornton</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>John</td>
+            <td>Deep</td>
+            <td>Deep</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

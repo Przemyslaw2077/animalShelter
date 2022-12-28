@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Historia</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+
+    <div class="jumbotron home-jumbo">
+        <div class="container text-center text-white jumbo-container">
+            <h1 class="display-3">Schronisko</h1>
+            <p>Informacje o wszystkich ostatnich adopcjach</p>
+            <p><a class="btn btn-outline-secondary" th:href="|/|">Strona główna</a></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="text-center mb-2">
+
+                <div class="btn-group">
+                    <a href="#" th:href="|/information/history|" class="btn btn-success">Historia Adopcji</a>
+                    <a href="#" th:href="|/information/animals?adopted=true|" class="btn btn-primary">Zaadoptowane zwierzęta</a>
+                    <a href="#" th:href="|/information/employees|" class="btn btn-success">Pracownicy</a>
+                    <a href="#" th:href="|/information/animals?adopted=false|" class="btn btn-primary">Nie zaadoptowane zwierzęta</a>
+                    <a href="#" th:href="|/information/adopters|" class="btn btn-success">Osoby Adoptujące</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div th:if="${histories.isEmpty()}" style="text-align: center">
+        <h1>
+            Żadne zwierze nie zostało jeszcze zaadoptowane.
+        </h1>
+        <a href="#" th:href="|/|" class="btn btn-danger">Wybierz i zaadoptuj zwierzaka</a>
+
+    </div>
+
+    <table th:unless="${histories.isEmpty()}" class="table table-dark table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Imie Pracownika</th>
+            <th scope="col">Nazwisko Pracownika</th>
+            <th scope="col">Imie Osoby Adoptującej</th>
+            <th scope="col">Nazwisko Osoby Adoptującej</th>
+            <th scope="col">Imie Zwierzęcie</th>
+            <th scope="col">Gatunek Zwierzęcie</th>
+            <th scope="col">Data Adopcji</th>
+
+        </tr>
+        </thead>
+        <tbody th:remove="all-but-first">
+        <tr th:each="history: ${histories}" th:object="${history}">
+            <th scope="row">1</th>
+            <td th:text="*{employeeFirstName}">Mark</td>
+            <td th:text="|*{employeeLastName}|">White</td>
+            <td th:text="|*{adopterFirstName}|">Philip</td>
+            <td th:text="|*{adopterLastName}|">Edwards</td>
+            <td th:text="|*{animalName}|">Robert</td>
+            <td th:text="|*{animalSpecies}|">Dog</td>
+            <td th:text="|*{adoptDate}|">Now</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>Philip</td>
+            <td>Edwards</td>
+            <td>Robert</td>
+            <td>Dog</td>
+            <td>Now</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>John</td>
+            <td>Deep</td>
+            <td>Philip</td>
+            <td>Edwards</td>
+            <td>Robert</td>
+            <td>Dog</td>
+            <td>Now</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

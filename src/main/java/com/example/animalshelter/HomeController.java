@@ -1,5 +1,6 @@
 package com.example.animalshelter;
 
+import com.example.animalshelter.animal.AnimalStatistics;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +22,7 @@ public class HomeController {
 
         if (specie == null){
             if (gender == null){
-                model.addAttribute("animals", animalService.findAll());
+                model.addAttribute("animals", animalService.findAllNoAdopted());
             }else {
                 model.addAttribute("animals",animalService.findAllByGender(gender));
             }

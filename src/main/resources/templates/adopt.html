@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adoptuj</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron home-jumbo">
+        <div class="container text-center text-white jumbo-container">
+            <h1 class="display-3">Schronisko</h1>
+            <p>Witaj w naszej restauracji. Zamawiaj co chcesz i ile chcesz, a my przygotujemy to dla Ciebie.</p>
+            <p><a class="btn btn-outline-secondary" th:href="|/|">Strona główna</a></p>
+        </div>
+    </div>
+
+
+
+    <div style="text-align: center"  >
+
+            <img th:src="${animal.race.getIMGDirectory()}" src="../static/img/bernardyn.jpg" style="width: 20rem" class="card-img-top" alt="...">
+
+        </div>
+
+
+    <form action="#" th:object="${adoptionHistory}" th:action="@{/animal/adopt}" method="post">
+
+
+        <div style="text-align: center" class="row">
+
+            <div class="col-md-12">
+
+                <input type="hidden" name="animalId" th:value="${animal.id}">
+            </div>
+
+            <div class="col-md-6">
+                <label for="animalName" class="form-label">Imie zwierzęcia</label>
+                <input disabled th:value="${animal.name}" type="text" name="name" class="form-control" id="animalName">
+            </div>
+            <div class="col-md-6">
+                <label for="animalSpecies" class="form-label">Zwierze</label>
+                <input disabled th:value="${animal.species.getTranslation()}" name="species" type="text" class="form-control" id="animalSpecies">
+                <input type="hidden" name="species" th:value="${animal.species}">
+            </div>
+            <div class="col-12">
+                <label for="animalRace" class="form-label">Rasa</label>
+                <input disabled th:value="${animal.race.getTranslation()}" type="text" class="form-control" id="animalRace">
+<!--                <input type="hidden" name="name" th:value="${animal.race}">-->
+            </div>
+
+            <div  class="col-md-12">
+                <label for="inputState" class="form-label">Osoba adoptująca</label>
+                <select name="adopterId" id="inputState" class="form-select form-select-lg mb-6">
+                    <option th:each="adopter: ${adopters}" th:text="${adopter.firstName}" th:value="${adopter.id}">Ch</option>
+                </select>
+            </div>
+
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-danger">Adoptuj</button>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+<!--        <div class="form-group">-->
+<!--            <label for="addressInput"></label>-->
+<!--            <input disabled class="form-control" th:value="${animal.name}" value="eeee" id="addressInput" name="name" placeholder th:text="${animal.name}">-->
+<!--        </div>-->
+<!--        <p th:if="${animal.species == 'DOG'}">r-->
+<!--        <div class="form-group">-->
+<!--            <label for="spieces">Password</label>-->
+<!--            <input disabled type="text" class="form-control" id="spieces" name="dogId" placeholder="888-999-777">-->
+<!--        </div>-->
+
+<!--        </p>-->
+<!--        <div>-->
+<!--            <select th:field="" class="form-select" aria-label="Disabled select example" disabled>-->
+<!--                <option selected>Open this select menu</option>-->
+<!--                <option value="1">One</option>-->
+<!--                <option value="2">Two</option>-->
+<!--                <option value="3">Three</option>-->
+<!--            </select>-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="telephoneInput">Password</label>-->
+<!--            <input type="text" class="form-control" id="telephoneInput" name="telephone" placeholder="888-999-777">-->
+<!--        </div>-->
+<!--        <div class="text-center">-->
+<!--            <button class="btn btn-primary">Zamów</button>-->
+<!--        </div>-->
+    </form>
+
+
+
+
+</div>
+
+</body>
+</html>

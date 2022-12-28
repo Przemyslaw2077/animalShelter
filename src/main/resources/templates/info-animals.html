@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zwierzęta</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+
+    <div class="jumbotron home-jumbo">
+        <div class="container text-center text-white jumbo-container">
+            <h1 class="display-3">Schronisko</h1>
+            <p>Informacje o wszystkich zwierzętach w aplikacji</p>
+            <p><a class="btn btn-outline-secondary" th:href="|/|">Strona główna</a></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="text-center mb-2">
+
+                <div class="btn-group">
+                    <a href="#" th:href="|/information/history|" class="btn btn-success">Historia Adopcji</a>
+                    <a href="#" th:href="|/information/animals?adopted=true|" class="btn btn-primary">Zaadoptowane zwierzęta</a>
+                    <a href="#" th:href="|/information/employees|" class="btn btn-success">Pracownicy</a>
+                    <a href="#" th:href="|/information/animals?adopted=false|" class="btn btn-primary">Nie zaadoptowane zwierzęta</a>
+                    <a href="#" th:href="|/information/adopters|" class="btn btn-success">Osoby Adoptujące</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div th:if="${animals.isEmpty()}" style="text-align: center">
+        <h1>
+            Żadne zwierze nie zostało jeszcze zaadoptowane.
+        </h1>
+        <button type="button" th:href="|/|" class="btn btn-danger">Wybierz i zaadoptuj zwierzaka.</button>
+    </div>
+
+    <table th:unless="${animals.isEmpty()}" class="table table-dark table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Imie</th>
+            <th scope="col">Gatunek</th>
+            <th scope="col">Rasa</th>
+            <th scope="col">Płeć</th>
+            <th scope="col">Wiek</th>
+            <th scope="col">Rozmiar</th>
+            <th th:if="${animals.get(0).isAdopted() && !animals.isEmpty()}" scope="col">Imie Osoby Adoptującej</th>
+            <th th:if="${animals.get(0).isAdopted() && !animals.isEmpty()}" scope="col">Nazwisko Osoby Adoptującej</th>
+
+
+        </tr>
+        </thead>
+        <tbody th:remove="all-but-first">
+        <tr th:each="animal: ${animals}" th:object="${animal}">
+            <th scope="col" >1</th>
+            <td th:text="|*{name}|">Mark</td>
+            <td th:text="|*{species.getTranslation()}|">Cat</td>
+            <td th:text="|*{race.getTranslation()}|">Normal</td>
+            <td th:text="|*{gender.getTranslation()}|">He</td>
+            <td th:text="|*{age.getTranslation()}|">Young</td>
+            <td th:text="|*{size.getTranslation()}|">Small</td>
+            <td th:if="${animals.get(0).isAdopted() && !animals.isEmpty()}" th:text="|*{owner.firstName}|">John</td>
+            <td th:if="${animals.get(0).isAdopted() && !animals.isEmpty()}" th:text="|*{owner.lastName}|">Deep</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>John</td>
+            <td>Deep</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

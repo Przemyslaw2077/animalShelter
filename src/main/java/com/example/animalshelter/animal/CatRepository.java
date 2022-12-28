@@ -1,4 +1,4 @@
-package com.example.animalshelter;
+package com.example.animalshelter.animal;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

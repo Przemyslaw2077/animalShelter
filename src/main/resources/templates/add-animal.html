@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj zwierze</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet">
+</head>
+<body>
+
+
+<div class="container">
+    <div class="jumbotron home-jumbo">
+        <div class="container text-center text-white jumbo-container">
+            <h1 class="display-3">Schronisko</h1>
+            <p>Wypełnij pola i dodaj nowe zwierze do schroniska.</p>
+            <p><a class="btn btn-outline-secondary" th:href="|/|">Strona główna</a></p>
+        </div>
+    </div>
+
+
+
+
+    <form action="#" th:object="${newAnimal}" th:action="@{/animal/add}" method="post">
+
+
+        <div class="row">
+
+<!--            <div class="col-md-12">-->
+
+<!--                <input type="hidden" name="id" th:value="${animal.id}">-->
+<!--            </div>-->
+
+            <div class="col-md-6">
+                <label for="animalName" class="form-label">Imie zwierzęcia</label>
+                <input th:field="*{name}" type="text" class="form-control" id="animalName">
+            </div>
+            <div class="col-md-6">
+                <label for="animalSpecies" class="form-label">Zwierze</label>
+                <input disabled th:value="*{species}" name="species" type="text" class="form-control" id="animalSpecies">
+                <input th:field="*{species}" type="hidden" name="species" th:value="*{species}">
+            </div>
+<!--            <div class="col-12">-->
+<!--                <label for="animalRace" class="form-label">Rasa</label>-->
+<!--                <input disabled th:value="*{animal.race}" type="text" class="form-control" id="animalRace">-->
+<!--                &lt;!&ndash;                <input type="hidden" name="name" th:value="${animal.race}">&ndash;&gt;-->
+<!--            </div>-->
+
+            <div style="text-align: center" class="col-md-12">
+                <label for="gender" class="form-label"> Wybierz płeć</label>
+                <select th:field="*{gender}" id="gender" class="form-select form-select-lg mb-6">
+                    <option th:each="gender: ${genders}" th:text="${gender.getTranslation()}" th:value="${gender}">HE</option>
+                </select>
+
+                <a th:if="*{species.name() == 'DOG'} ">
+                    <label for="dogRace" class="form-label"> Wybierz rase</label>
+                    <select name="dogRace" id="dogRace" class="form-select form-select-lg mb-6">
+                        <option th:each="race: ${races}" th:text="${race.getTranslation()}" th:value="${race}">DOGCAT</option>
+                    </select>
+                </a>
+
+                <a th:if="*{species.name() == 'CAT'} ">
+                    <label for="catRace" class="form-label"> Wybierz rase</label>
+                    <select name="catRace" id="catRace" class="form-select form-select-lg mb-6">
+                        <option th:each="race: ${races}" th:text="${race.getTranslation()}" th:value="${race}">DOGCAT</option>
+                    </select>
+                </a>
+
+
+                <label for="size" class="form-label"> Wybierz rozmiar</label>
+                <select th:field="*{size}" id="size" class="form-select form-select-lg mb-6">
+                    <option th:each="size: ${sizes}" th:text="${size.getTranslation()}" th:value="${size}">SMALL</option>
+                </select>
+
+                <label for="age" class="form-label">Wybierz wiek</label>
+                <select th:field="*{age}" id="age" class="form-select form-select-lg mb-6">
+                    <option th:each="age: ${ages}" th:text="${age.getTranslation()}" th:value="${age}">YOUNG</option>
+                </select>
+            </div>
+
+            <div class="col-md-12">
+                <label for="description" class="form-label">krótki opis</label>
+                <textarea th:field="*{description}" maxlength="230" id="description" class="form-control"></textarea>
+            </div>
+
+            <div style="text-align: center" class="col-12">
+                <button type="submit" class="btn btn-danger">Stwórz</button>
+            </div>
+
+        </div>
+
+
+    </form>
+
+
+
+
+</div>
+
+</body>
+</html>

@@ -1,6 +1,7 @@
 package com.example.animalshelter;
 
 
+import com.example.animalshelter.animal.*;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,13 +19,4 @@ public class AnimalDetailsService {
         this.dogDTOMapper = dogDTOMapper;
     }
 
-    AnimalDTO animalDetails(String name, AnimalStatistics.Species species) {
-        AnimalDTO animal;
-
-        if (species.equals(AnimalStatistics.Species.CAT)) {
-            animal = catDTOMapper.toDTO(catRepository.findByName(name).get());
-        } else
-            animal = dogDTOMapper.toDTO((dogRepository.findByName(name).get()));
-        return animal;
-    }
 }
