@@ -45,8 +45,8 @@
         </tr>
         </thead>
         <tbody th:remove="all-but-first">
-        <tr th:each="employee: ${employees}" th:object="${employee}">
-            <th scope="row">1</th>
+        <tr th:each="employee, status: ${employees}" th:object="${employee}">
+            <th th:text="${status.count}" scope="row">1</th>
             <td th:text="*{firstName}">Mark</td>
             <td th:text="|*{lastName}|">White</td>
             <td th:text="|*{userName}|">Philip</td>

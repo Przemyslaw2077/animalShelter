@@ -22,12 +22,12 @@
 
         <div style="width: 33rem;position: relative; left: 300px" class="input-group">
             <span style="width: 10rem" class="input-group-text">Imię i Nazwisko</span>
-            <input th:field="*{firstName}" type="text" aria-label="First name" class="form-control">
-            <input th:field="*{lastName}" type="text" aria-label="Last name" class="form-control">
+            <input required th:field="*{firstName}" type="text" aria-label="First name" class="form-control">
+            <input required th:field="*{lastName}" type="text" aria-label="Last name" class="form-control">
         </div>
         <div style="width: 33rem;position: relative;left: 300px" class="input-group">
             <span class="input-group-text">Numer telefonu</span>
-            <input th:field="*{telephoneNumber}" type="number" aria-label="telephone Number" class="form-control">
+            <input required th:field="*{telephoneNumber}" type="number" aria-label="telephone Number" class="form-control">
         </div>
 
         <button style="position: relative;left: 33rem" type="submit" class="btn btn-danger">Stwórz</button>

@@ -32,7 +32,7 @@ public class AnimalAdopterController {
 
     @GetMapping("/confirmation")
     String creationConfirmed(Model model){
-        model.addAttribute("message", "Wszystko się udało, stworzon nową osoba adoptującą");
+        model.addAttribute("message", "Wszystko się udało, stworzono nową osoba adoptującą");
         return "message";
     }
 

@@ -52,11 +52,11 @@ public class AnimalController {
     String addAnimalToShelter(AnimalDTO animalDTO,  @RequestParam(required = false) AnimalStatistics.DogRace dogRace,
                                                     @RequestParam(required = false) AnimalStatistics.CatRace catRace){
         animalService.saveAnimal(animalDTO, catRace, dogRace);
-        return "redirect:/confirmation";
+        return "redirect:/animal/add/confirmation";
 
     }
 
-    @GetMapping("/confirmation")
+    @GetMapping("/add/confirmation")
     String addConfirmed(Model model){
         model.addAttribute("message", "Wszystko się udało, zwierze zostało dodane");
         return "message";

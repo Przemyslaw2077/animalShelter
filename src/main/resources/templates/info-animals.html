@@ -56,8 +56,8 @@
         </tr>
         </thead>
         <tbody th:remove="all-but-first">
-        <tr th:each="animal: ${animals}" th:object="${animal}">
-            <th scope="col" >1</th>
+        <tr th:each="animal, status: ${animals}" th:object="${animal}">
+            <th th:text="${status.count}" scope="col" >1</th>
             <td th:text="|*{name}|">Mark</td>
             <td th:text="|*{species.getTranslation()}|">Cat</td>
             <td th:text="|*{race.getTranslation()}|">Normal</td>

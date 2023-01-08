@@ -55,8 +55,8 @@
         </tr>
         </thead>
         <tbody th:remove="all-but-first">
-        <tr th:each="history: ${histories}" th:object="${history}">
-            <th scope="row">1</th>
+        <tr th:each="history, status: ${histories}" th:object="${history}">
+            <th th:text="${status.count}" scope="row">1</th>
             <td th:text="*{employeeFirstName}">Mark</td>
             <td th:text="|*{employeeLastName}|">White</td>
             <td th:text="|*{adopterFirstName}|">Philip</td>

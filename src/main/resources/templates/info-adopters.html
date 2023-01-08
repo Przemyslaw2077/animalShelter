@@ -48,8 +48,8 @@
     </tr>
     </thead>
     <tbody th:remove="all-but-first">
-    <tr th:each="adopter: ${adopters}" th:object="${adopter}">
-      <th scope="row">1</th>
+    <tr th:each="adopter, status: ${adopters}" th:object="${adopter}">
+      <th th:text="${status.count}" scope="row">1</th>
       <td th:text="*{firstName}">Mark</td>
       <td th:text="|*{lastName}|">White</td>
       <td th:text="|*{telephoneNumber}|">Philip</td>

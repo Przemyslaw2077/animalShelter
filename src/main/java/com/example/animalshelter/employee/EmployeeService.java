@@ -1,4 +1,4 @@
-package com.example.animalshelter;
+package com.example.animalshelter.employee;
 
 
 import com.example.animalshelter.employee.Employee;
@@ -33,7 +33,7 @@ public class EmployeeService {
         return byUserName;
     }
 
-    List<EmployeeDTO> findAll(){
+    public List<EmployeeDTO> findAll(){
         List<Employee> employees = new ArrayList<>();
         employeeRepository.findAll().forEach(employees::add);
         return employees.stream().map(employeeDTOMapper::toDTO).toList();

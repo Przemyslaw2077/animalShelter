@@ -34,7 +34,7 @@
 
             <div class="col-md-6">
                 <label for="animalName" class="form-label">Imie zwierzęcia</label>
-                <input th:field="*{name}" type="text" class="form-control" id="animalName">
+                <input th:field="*{name}" type="text" required class="form-control" id="animalName">
             </div>
             <div class="col-md-6">
                 <label for="animalSpecies" class="form-label">Zwierze</label>
@@ -81,7 +81,7 @@
 
             <div class="col-md-12">
                 <label for="description" class="form-label">krótki opis</label>
-                <textarea th:field="*{description}" maxlength="230" id="description" class="form-control"></textarea>
+                <textarea th:field="*{description}" required maxlength="230" id="description" class="form-control"></textarea>
             </div>
 
             <div style="text-align: center" class="col-12">

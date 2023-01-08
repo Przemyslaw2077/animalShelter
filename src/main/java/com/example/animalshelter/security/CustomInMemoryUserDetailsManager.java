@@ -1,6 +1,6 @@
 package com.example.animalshelter.security;
 
-import com.example.animalshelter.EmployeeService;
+import com.example.animalshelter.employee.EmployeeService;
 import com.example.animalshelter.employee.EmployeeDTO;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

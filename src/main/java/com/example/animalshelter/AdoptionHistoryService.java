@@ -4,6 +4,7 @@ import com.example.animalshelter.adopter.AnimalAdopter;
 import com.example.animalshelter.adopter.AnimalAdopterService;
 import com.example.animalshelter.animal.*;
 import com.example.animalshelter.employee.Employee;
+import com.example.animalshelter.employee.EmployeeService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
