@@ -22,7 +22,6 @@
             <img th:src="*{race.getIMGDirectory()}" style="width:600px"  src="../static/img/bernardyn.jpg" class="img-fluid" alt="Szczeguły" />
             <div class="shadow-lg p-3 mb-5 bg-white rounded">
                 <h1 th:text="|*{species.getTranslation()}  *{name}|" class="text-center">Mark</h1>
-<!--                <h3 th:text="|Cena: *{price}zł|" class="text-center">Cena: 25zł</h3>-->
                 <p th:text="*{description}" class="text-justify">opis</p>
             </div>
 
@@ -64,6 +63,8 @@
     <p th:text="*{race.getRaceDescription}" class="container text-center" >Opis rasy</p>
     <div style="text-align: center" class="col-12">
         <a class="btn btn-danger" th:href="|/animal/adopt?animalId=*{id}&species=*{species}|" >Adoptuj</a>
+        <a class="btn btn-danger" th:href="|/animal/add?species=*{species}&animalToEditId=*{id}|" >Edytuj</a>
+        <a class="btn btn-danger" th:href="|/animal/delete?species=*{species}&animalToDeleteId=*{id}|" >usuń</a>
     </div>
 </div>
 </body>

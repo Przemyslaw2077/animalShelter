@@ -1,4 +1,4 @@
-package com.example.animalshelter;
+package com.example.animalshelter.adoption_history;
 
 
 import com.example.animalshelter.adopter.AnimalAdopter;

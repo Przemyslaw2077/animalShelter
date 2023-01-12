@@ -13,18 +13,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
-//    @Bean
-//    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        http.authorizeHttpRequests(raquest -> raquest
-//                .mvcMatchers("/").permitAll()
-////                .mvcMatchers("/register","/confirmation").permitAll()
-////                .mvcMatchers("/secured").hasAnyRole("USER","ADMIN")
-////                .mvcMatchers("/admin/**").hasRole("ADMIN")
-//                .anyRequest().authenticated());
-//
-//        http.csrf().disable();
-//        return http.build();
-//    }
 
     @Bean
     PasswordEncoder passwordEncoder(){

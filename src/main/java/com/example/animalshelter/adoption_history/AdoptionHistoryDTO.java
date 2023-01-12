@@ -1,4 +1,4 @@
-package com.example.animalshelter;
+package com.example.animalshelter.adoption_history;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,5 +15,5 @@ public class AdoptionHistoryDTO {
     private String animalSpecies;
     private String adopterFirstName;
     private String adopterLastName;
-    private LocalDateTime adoptDate;
+    private String adoptDate;
 }

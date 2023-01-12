@@ -1,6 +1,8 @@
 package com.example.animalshelter;
 
 import com.example.animalshelter.adopter.AnimalAdopterService;
+import com.example.animalshelter.adoption_history.AdoptionHistoryService;
+import com.example.animalshelter.animal.AnimalService;
 import com.example.animalshelter.employee.EmployeeDTO;
 import com.example.animalshelter.employee.EmployeeService;
 import org.springframework.stereotype.Controller;
@@ -37,12 +39,6 @@ public class InformationController {
 
         return "info-animals";
     }
-//    @GetMapping("/noAdoptedAnimals")
-//    String noAdoptedAnimals(Model model){
-//        animalService.findAllNoAdopted();
-//
-//        return "";
-//    }
 
     @GetMapping("/history")
     String adoptionHistory(Model model){

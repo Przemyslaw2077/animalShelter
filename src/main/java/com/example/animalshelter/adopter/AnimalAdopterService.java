@@ -35,6 +35,7 @@ public class AnimalAdopterService {
     public Optional<AnimalAdopter> findByFirstName(String firstName){
         return animalAdopterRepository.findByFirstName(firstName);
     }
+
     public Optional<AnimalAdopter> findById(Long adopterId){
         return animalAdopterRepository.findById(adopterId);
     }

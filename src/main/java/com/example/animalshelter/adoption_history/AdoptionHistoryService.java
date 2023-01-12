@@ -1,4 +1,4 @@
-package com.example.animalshelter;
+package com.example.animalshelter.adoption_history;
 
 import com.example.animalshelter.adopter.AnimalAdopter;
 import com.example.animalshelter.adopter.AnimalAdopterService;
@@ -58,17 +58,15 @@ public class AdoptionHistoryService {
             }
         }
 
-
         Optional<Employee> employeeByUserName = employeeService.findEmployeeByUserName(employeeUserName);
             employeeByUserName.ifPresent(it -> adoptionHistory.setAnimalIssuingEmployee(it));
-//        adoptionHistory.setAnimalIssuingEmployee(employeeService.findEmployeeByUserName());
         adoptionHistory.setAdoptDate(LocalDateTime.now());
 
         adoptionHistoryRepository.save(adoptionHistory);
 
     }
 
-    List<AdoptionHistoryDTO> findAll(){
+    public List<AdoptionHistoryDTO> findAll(){
         List<AdoptionHistory> adoptionHistories = new ArrayList<>();
 
         adoptionHistoryRepository.findAll().forEach(adoptionHistories::add);

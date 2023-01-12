@@ -27,10 +27,6 @@
 
         <div class="row">
 
-<!--            <div class="col-md-12">-->
-
-<!--                <input type="hidden" name="id" th:value="${animal.id}">-->
-<!--            </div>-->
 
             <div class="col-md-6">
                 <label for="animalName" class="form-label">Imie zwierzęcia</label>
@@ -38,14 +34,9 @@
             </div>
             <div class="col-md-6">
                 <label for="animalSpecies" class="form-label">Zwierze</label>
-                <input disabled th:value="*{species}" name="species" type="text" class="form-control" id="animalSpecies">
+                <input disabled th:value="*{species.getTranslation()}" name="species" type="text" class="form-control" id="animalSpecies">
                 <input th:field="*{species}" type="hidden" name="species" th:value="*{species}">
             </div>
-<!--            <div class="col-12">-->
-<!--                <label for="animalRace" class="form-label">Rasa</label>-->
-<!--                <input disabled th:value="*{animal.race}" type="text" class="form-control" id="animalRace">-->
-<!--                &lt;!&ndash;                <input type="hidden" name="name" th:value="${animal.race}">&ndash;&gt;-->
-<!--            </div>-->
 
             <div style="text-align: center" class="col-md-12">
                 <label for="gender" class="form-label"> Wybierz płeć</label>
@@ -84,6 +75,10 @@
                 <textarea th:field="*{description}" required maxlength="230" id="description" class="form-control"></textarea>
             </div>
 
+            <a>
+                <input  type="hidden" name="animalToEditId" th:value="${animalToEditId}">
+            </a>
+
             <div style="text-align: center" class="col-12">
                 <button type="submit" class="btn btn-danger">Stwórz</button>
             </div>
@@ -92,9 +87,6 @@
 
 
     </form>
-
-
-
 
 </div>
 

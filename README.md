@@ -27,7 +27,7 @@ each animal has button to view animal details and button to adopt that animal.
 
 ### Animal details
 Here you can see all information about animal,
-at the end is button that allow you to adopt that animal.
+at the end is buttons that allow you to adopt that animal, delete it or update.
 
 ### Adoption
 There will be some information about the animal you have selected.
@@ -36,7 +36,7 @@ After that you will see a message that everything went good,
 and selected animal will disappear from the main page.
 
 ### Adding new animal
-here you must enter or select information about animal that you want to add, 
+Here you must enter or select information about animal that you want to add, 
 and click create button. After that new animal will appear on the main page.
 
 ### Adding new animal adopter
@@ -44,4 +44,5 @@ Fill in all fields and click create button.
 New person will be possible to choose when you will adopt an animal.
 
 ### Adoption history
+Here are saved all information about adoptions, animals, and animals adopters.
 

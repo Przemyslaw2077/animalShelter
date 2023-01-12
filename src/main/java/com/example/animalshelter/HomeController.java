@@ -1,5 +1,6 @@
 package com.example.animalshelter;
 
+import com.example.animalshelter.animal.AnimalService;
 import com.example.animalshelter.animal.AnimalStatistics;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

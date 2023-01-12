@@ -31,12 +31,8 @@ public class CustomInMemoryUserDetailsManager implements UserDetailsManager {
     }
 
     private UserDetails createUserDetails(EmployeeDTO employeeDTO){
-        User.UserBuilder userBuilder = User.builder();
         return new User(employeeDTO.getUserName(), employeeDTO.getPassword(), convertAuthority(employeeDTO.getRoles()));
-//        return userBuilder.username(employeeDTO.getUserName())
-//                .password(employeeDTO.getPassword())
-//                .roles("USER")
-//                .build();
+
 
     }
 

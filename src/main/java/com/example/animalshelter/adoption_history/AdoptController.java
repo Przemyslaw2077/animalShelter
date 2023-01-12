@@ -1,6 +1,7 @@
-package com.example.animalshelter;
+package com.example.animalshelter.adoption_history;
 
 import com.example.animalshelter.adopter.AnimalAdopterService;
+import com.example.animalshelter.animal.AnimalService;
 import com.example.animalshelter.animal.AnimalStatistics;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -32,22 +33,15 @@ public class AdoptController {
         model.addAttribute("adoptionHistory",adoptionHistory);
         model.addAttribute("animal", animalService.findAnimalById(animalId,species));
 
-        Long a = 4L;
-
-
         return "adopt";
-
     }
 
     @PostMapping("/adopt")
     String adopt(Authentication authentication, @RequestParam Long animalId, @RequestParam AnimalStatistics.Species species,
-                 @RequestParam Long adopterId, Model model){
+                 @RequestParam Long adopterId){
         adoptionHistoryService.saveAdoption(authentication.getName(), animalId, species, adopterId);
-//        AnimalDTO animalByName = animalService.findAnimalByName(name, species);
-        model.addAttribute("message", "Wszystko się udało! "+ species.getTranslation()
-                +" "+ " została zaadoptowany przez: "+adopterId);
-        return "redirect:/animal/adopt/confirmation";
 
+        return "redirect:/animal/adopt/confirmation";
     }
 
     @GetMapping("/adopt/confirmation")

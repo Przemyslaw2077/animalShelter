@@ -1,20 +1,17 @@
-package com.example.animalshelter;
+package com.example.animalshelter.adoption_history;
 
 
 import org.springframework.stereotype.Service;
 
+import java.time.format.DateTimeFormatter;
+
 @Service
 public class AdoptionHistoryDTOMapper {
 
-//    void toEntity(AdoptionHistoryDTO dto){
-//        AdoptionHistory entity = new AdoptionHistory();
-//        entity.setAdoptDate(dto.getAdoptDate());
-//
-//    }
 
     AdoptionHistoryDTO toDTO(AdoptionHistory entity){
         AdoptionHistoryDTO dto = new AdoptionHistoryDTO();
-        dto.setAdoptDate(entity.getAdoptDate());
+        dto.setAdoptDate(entity.getAdoptDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd\nHH:mm")));
         dto.setAdopterFirstName(entity.getAdopter().getFirstName());
         dto.setAdopterLastName(entity.getAdopter().getLastName());
         dto.setEmployeeFirstName(entity.getAnimalIssuingEmployee().getFirstName());

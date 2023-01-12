@@ -20,7 +20,6 @@ public class AnimalAdopterController {
         AnimalAdopterDTO animalAdopterDTO = new AnimalAdopterDTO();
         model.addAttribute("animalAdopter",animalAdopterDTO);
         return "create-adopter";
-
     }
 
     @PostMapping("/create")

@@ -12,5 +12,4 @@ public interface CatRepository extends CrudRepository<Cat, Long> {
     List<Cat> findAll();
 
 
-    Optional<Cat> findByName(String name);
 }

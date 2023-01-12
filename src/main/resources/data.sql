@@ -2,7 +2,7 @@ INSERT INTO
     Animal_adopter(first_name, last_name, telephone_number)
 values
     ('Marcin', 'Błaszczyk', '123334553'),
-    ('Andrzej', 'Szklarski', '88689009'),
+    ('Andrzej', 'Szklarski', '838689009'),
     ('Kondrad', 'Starosta', '344548600');
 
 INSERT INTO
